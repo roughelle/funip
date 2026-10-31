@@ -88,7 +88,23 @@
    }
  </style>
 </head>
-<body>
+<script>
+  function atualizarData() {
+    const agora = new Date();
+
+    const dataFormatada = agora.toLocaleDateString('pt-BR', {
+      timeZone: 'America/Sao_Paulo',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+
+    document.getElementById('data-atual').textContent = dataFormatada;
+  }
+
+  atualizarData();
+  setInterval(atualizarData, 1000);
+</script><body>
  <div class="card">
    <div class="logo">
      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 236.2 81.9" width="236" height="82" style="enable-background:new 0 0 236.2 81.9;" xml:space="preserve">
@@ -151,8 +167,8 @@
 
 
    <div class="footer">
-     <span>Data:</span> 24/08/2026
-   </div>
+  <span>Data:</span> <span id="data-atual"></span>
+</div>
  </div>
 </body>
 </html>
